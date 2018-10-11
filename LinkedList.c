@@ -15,9 +15,11 @@ struct node * insert_front(struct node *foo, int x){
   return newNode;
 }
 struct node * free_list(struct node *foo){
-    while(foo){
-      free(foo);
-      foo=foo->next;
+	struct node* cur;
+    while(foo!=NULL){
+      cur=foo;
+	  foo=foo->next;
+	  free(foo);
   }
   return foo;
 }
